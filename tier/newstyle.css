@@ -150,6 +150,7 @@ img {
 	width: 64px;
 	background-position: center;
 	background-size: cover;
+	border: 1px black solid;
 }
 
 #overlay {
@@ -246,4 +247,27 @@ button:active {
 
 @media handheld {
 	body{width: 800px;}
+}
+
+#addItem {
+	position: relative;
+	display:none;
+	/*top: 157px;*/
+	width: 728px;
+	margin: 0 auto;
+	background-color: #fff;
+	padding:20px;
+	text-align:center;
+	z-index: 2000;
+}
+
+#filezone {
+	width: 600px;
+	height: 200px;
+	margin: 0 auto;
+}
+
+#preview {
+	height: 100px;
+	width: auto;
 }

@@ -59,7 +59,7 @@
 	</div>
 	
 	<div id="char" class="sort">
-		<div>If no characters are loaded here, choose a game by clicking the "Change game" button above.</div>
+		<div class='character'><img src="img/add.png" /></div>
 	</div>
 	
 	<div id="overlay">
@@ -162,7 +162,7 @@
 		var currentColor;
 		var colorIndex;
 		var currentGame;
-		var currentGameChars = gameSmash4;
+		var currentGameChars = [];
 		var characters;
 		var resized,tableWidth;
 					  
@@ -247,13 +247,6 @@
 				$("#overlay").css("opacity", 1);
 				$("#overlay").css("visibility", "visible");
 				$("td:last-of-type").css("display","none");
-				html2canvas($("table"), {
-				  onrendered: function(canvas) {
-					$("#screenshotShow span").after(canvas);
-					$("td:last-of-type").css("display","table-cell");
-					$("#screenshotShow").css("top",alignPopup($("#screenshotShow")));
-				  }
-				});
 			} else if(clicked == "hidebuttons") { // hide the buttons
 				if (screenshotMode) {
 					$("td:last-of-type").css("display","table-cell");
@@ -309,6 +302,13 @@
 				}
 				loadCode(currentGameChars[0]+"==S|0==A|1==B|3==C|5==D|7==E|8==F|9");
 			}
+			html2canvas($("table"), {
+					onrendered: function(canvas) {
+						$("#screenshotShow span").after(canvas);
+						$("td:last-of-type").css("display","table-cell");
+						$("#screenshotShow").css("top",alignPopup($("#screenshotShow")));
+					}
+				});
 		});
 		
 		$("#labelName").bind("input propertychange", function() {
@@ -448,7 +448,7 @@
 		});
 		$(window).resize( function () {
 			tierlistSize();
-		})
+		});
 		
 		function maleCorrinMode() {
 			$('<style>* { background: url(\'img/ssb4r/corrinm.png\'); }</style>').appendTo('head');
